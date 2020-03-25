@@ -12,11 +12,17 @@ class App extends Component {
       {fname: "Arohan", lname: "Timalsina", age: 39}
     ]
   }  
+
+  switchNameHandler = ()=>{
+    console.log("Button is clicked");
+  }
+
     render(){return (
       <div className="box">
         <Person fname={this.state.person[0].fname} lname={this.state.person[0].lname} age={this.state.person[0].age} />
         <Person fname={this.state.person[1].fname} lname={this.state.person[1].lname} age={this.state.person[1].age}> Wassup guys!!! </Person>
         <Person fname={this.state.person[2].fname} lname={this.state.person[2].lname} age={this.state.person[2].age} />
+        <button onClick={this.switchNameHandler}>Switch</button>
       </div>
   );}
 }
