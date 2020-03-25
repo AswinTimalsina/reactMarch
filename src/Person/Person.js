@@ -5,7 +5,7 @@ import React, {Component} from 'react';
     render(){
     return(
         <div>
-    <h1>This is {this.props.fname} {this.props.name}. I am {this.props.age} years old.</h1>
+    <h1>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2>{this.props.children}</h2>    
     {/* tags must be enclosed in other tags */}
     </div>
