@@ -7,7 +7,7 @@ function App() {
     return (
       <div className="box">
         <Person fname="Aswin" lname="Timalsina" age="23" />
-        <Person fname="rohan" lname="Timalsina" age="29" />
+        <Person fname="rohan" lname="Timalsina" age="29"> Wassup guys!!! </Person>
         <Person fname="Rudhan" lname="Timalsina" age="23" />
       </div>
   );

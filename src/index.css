@@ -13,9 +13,10 @@ code {
 } */
 
 .box{
-  width: 250px;
+
   border: 2px solid red;
   border-radius: 3px;
   background-color: grey;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
+  color: white;
 }
