@@ -3,8 +3,9 @@ import React, {Component} from 'react';
 
  class Person extends Component{
     render(){
+        
     return(
-        <div>
+    <div>
     <h1 onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2>{this.props.children}</h2> 
     <input type="text" value={this.props.fname} onChange={this.props.changed}/>   
