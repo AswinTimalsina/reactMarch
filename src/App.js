@@ -26,17 +26,24 @@ class App extends Component{
     })
   }
 
-  switchTextHandler = (name1) =>{
-    this.setState({person:[
-      {fname: "Austin", lname: "Williams", age: 29},
-      {fname: name1.target.value, lname: "Gugliya", age: 69},
-      {fname: "Sudhais", lname: "Major", age: 88}
-    ]})
-  }
+  // NOT CALLING IT ANYWHERE ANYTIME IN THIS APPLICATION
+  // switchTextHandler = (name1) =>{
+  //   this.setState({person:[
+  //     {fname: "Austin", lname: "Williams", age: 29},
+  //     {fname: name1.target.value, lname: "Gugliya", age: 69},
+  //     {fname: "Sudhais", lname: "Major", age: 88}
+  //   ]})
+  // }
   
   displayTextHandler = () =>{
     const displayFlag1 = this.state.displayFlag;
     this.setState({displayFlag: (!displayFlag1)})
+  }
+
+  deletePersonHandler =(personIndex) => {
+    const persons = this.state.person;
+    persons.splice(personIndex, 1);
+    this.setState({person : persons});
   }
   
   render(){
@@ -54,8 +61,10 @@ class App extends Component{
       persons = (
         <div className="box">
 
-            {this.state.person.map(per => {
-              return <Person fname={per.fname} lname={per.lname} age={per.age}/>
+            {this.state.person.map((per, index) => {
+
+              // while executing click={this.deletePersonHandler} I need to know which person I need to delete
+              return <Person click={() => this.deletePersonHandler(index)} fname={per.fname} lname={per.lname} age={per.age}/>
             })}
             {/* 
             This one works by the abovse method
@@ -69,7 +78,7 @@ class App extends Component{
 
 
             <button style={style} onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
-            <p>{this.state.otherName} {this.state.person[0].fname} {this.state.person[0].lname}!</p>
+            {/* <p>{this.state.otherName} {this.state.person[0].fname} {this.state.person[0].lname}!</p> */}
         </div> 
       )
     }
