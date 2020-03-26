@@ -34,12 +34,20 @@ class App extends Component{
   
   
   render(){
+    const style={
+      backgroundColor: 'green',
+      color: 'white',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
 return(
+  
   <div className="box">
 <Person fname={this.state.person[0].fname} lname={this.state.person[0].lname} age={this.state.person[0].age}/>
 <Person changed={this.switchTextHandler} click={this.switchNameHandler.bind(this, "Austin")} fname={this.state.person[1].fname} lname={this.state.person[1].lname} age={this.state.person[1].age}>Wassup guys!!!</Person>
 <Person fname={this.state.person[2].fname} lname={this.state.person[2].lname} age={this.state.person[2].age}/>
-<button onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
+<button style={style} onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
 <p>{this.state.otherName} {this.state.person[0].fname} {this.state.person[0].lname}!</p>
 </div>
 )
