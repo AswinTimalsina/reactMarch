@@ -53,9 +53,21 @@ class App extends Component{
     if(this.state.displayFlag){
       persons = (
         <div className="box">
+
+            {this.state.person.map(per => {
+              return <Person fname={per.fname} lname={per.lname} age={per.age}/>
+            })}
+            {/* 
+            This one works by the abovse method
             <Person fname={this.state.person[0].fname} lname={this.state.person[0].lname} age={this.state.person[0].age}/>
+            
+            This one has some attribs which is not handled by above method
             <Person changed={this.switchTextHandler} click={this.switchNameHandler.bind(this, "Austin")} fname={this.state.person[1].fname} lname={this.state.person[1].lname} age={this.state.person[1].age}>Wassup guys!!!</Person>
-            <Person fname={this.state.person[2].fname} lname={this.state.person[2].lname} age={this.state.person[2].age}/>
+
+            This one works by the above method
+            <Person fname={this.state.person[2].fname} lname={this.state.person[2].lname} age={this.state.person[2].age}/> */}
+
+
             <button style={style} onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
             <p>{this.state.otherName} {this.state.person[0].fname} {this.state.person[0].lname}!</p>
         </div> 
@@ -66,8 +78,7 @@ class App extends Component{
 return(
   <div>
     <button onClick={this.displayTextHandler}>Disappear</button>
-    {persons}
-  
+    {persons} 
 </div>
 
 )
