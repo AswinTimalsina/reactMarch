@@ -6,9 +6,9 @@ import './index.css';
 class App extends Component{
   state = {
     person:[
-      {fname: "Aswin", lname: "Timalsina", age: 23},
-      {fname: "Rohan", lname: "Gugliya", age: 42},
-      {fname: "Arohan", lname: "Timalsina", age: 39}
+      {id: "a1", fname: "Aswin", lname: "Timalsina", age: 23},
+      {id: "b1", fname: "Rohan", lname: "Gugliya", age: 42},
+      {id: "c1", fname: "Arohan", lname: "Timalsina", age: 39}
     ],
     otherName: "Hola",
     displayFlag: true
@@ -67,7 +67,13 @@ class App extends Component{
             {this.state.person.map((per, index) => {
 
               // while executing click={this.deletePersonHandler} I need to know which person I need to delete
-              return <Person click={() => this.deletePersonHandler(index)} fname={per.fname} lname={per.lname} age={per.age}/>
+              return <Person 
+              click={() => this.deletePersonHandler(index)} 
+              fname={per.fname} 
+              lname={per.lname} 
+              age={per.age}
+              key={per.id}
+              />
             })}
             {/* 
             This one works by the abovse method
