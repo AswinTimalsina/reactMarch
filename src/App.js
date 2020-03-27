@@ -26,15 +26,25 @@ class App extends Component{
     })
   }
 
-  // NOT CALLING IT ANYWHERE ANYTIME IN THIS APPLICATION
-  // switchTextHandler = (name1) =>{
-  //   this.setState({person:[
-  //     {fname: "Austin", lname: "Williams", age: 29},
-  //     {fname: name1.target.value, lname: "Gugliya", age: 69},
-  //     {fname: "Sudhais", lname: "Major", age: 88}
-  //   ]})
-  // }
-  
+  switchTextHandler = (event, id) =>{
+    const personIndex = this.state.person.findIndex(p => {
+      return p.id === id;
+    });
+    //we are making the copy of the targeted person
+    const personTargetedCopy = {
+      ...this.state.person[personIndex]
+    }; 
+    //making change in the xerox
+    personTargetedCopy.fname = event.target.value;
+    //making the copy of whole person array
+    const personCopy = [...this.state.person];
+    //changing the targeted person in the copied array
+    personCopy[personIndex] = personTargetedCopy;
+    this.setState({
+        person: personCopy
+    })
+  }
+   
   displayTextHandler = () =>{
     const displayFlag1 = this.state.displayFlag;
     this.setState({displayFlag: (!displayFlag1)})
@@ -73,21 +83,10 @@ class App extends Component{
               lname={per.lname} 
               age={per.age}
               key={per.id}
+              changed={(event)=>this.switchTextHandler(event, per.id)}
               />
             })}
-            {/* 
-            This one works by the abovse method
-            <Person fname={this.state.person[0].fname} lname={this.state.person[0].lname} age={this.state.person[0].age}/>
-            
-            This one has some attribs which is not handled by above method
-            <Person changed={this.switchTextHandler} click={this.switchNameHandler.bind(this, "Austin")} fname={this.state.person[1].fname} lname={this.state.person[1].lname} age={this.state.person[1].age}>Wassup guys!!!</Person>
-
-            This one works by the above method
-            <Person fname={this.state.person[2].fname} lname={this.state.person[2].lname} age={this.state.person[2].age}/> */}
-
-
             <button style={style} onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
-            {/* <p>{this.state.otherName} {this.state.person[0].fname} {this.state.person[0].lname}!</p> */}
         </div> 
       )
     }
