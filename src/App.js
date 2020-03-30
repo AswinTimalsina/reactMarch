@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import Person from './Person/Person'
 import './index.css';
+import Radium, {StyleRoot} from 'radium';
 
 class App extends Component{
   state = {
@@ -68,7 +69,10 @@ class App extends Component{
       color: 'white',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'blue'
+      }
     };
 
     let persons = null;
@@ -94,6 +98,11 @@ class App extends Component{
         </div> 
       )
             style.backgroundColor = 'red';
+            style[':hover'] = {
+              backgroundColor: 'yellow',
+              color: 'black'
+            }
+
 
     }
 
@@ -108,16 +117,17 @@ class App extends Component{
     }
 
 return(
+  <StyleRoot>
   <div className='center'>
     <h1>Hi, I'm a React App</h1>
     <h1 className={classes.join(' ')}>This is really working</h1>
     <button style={style} onClick={this.displayTextHandler}>Disappear</button>
     {persons} 
 </div>
-
+</StyleRoot>
 )
 
   }
 }
-export default App;
+export default Radium(App);
 
