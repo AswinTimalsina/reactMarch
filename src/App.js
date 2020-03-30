@@ -34,12 +34,15 @@ class App extends Component{
     const personTargetedCopy = {
       ...this.state.person[personIndex]
     }; 
-    //making change in the xerox
+    //making change in the xerox of targeted person
     personTargetedCopy.fname = event.target.value;
+
     //making the copy of whole person array
     const personCopy = [...this.state.person];
+
     //changing the targeted person in the copied array
     personCopy[personIndex] = personTargetedCopy;
+
     this.setState({
         person: personCopy
     })
@@ -84,17 +87,20 @@ class App extends Component{
               age={per.age}
               key={per.id}
               changed={(event)=>this.switchTextHandler(event, per.id)}
+              style={style}
               />
             })}
-            <button style={style} onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
+            <button onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
         </div> 
       )
+            style.backgroundColor = 'red';
+
     }
 
 
 return(
   <div>
-    <button onClick={this.displayTextHandler}>Disappear</button>
+    <button style={style} onClick={this.displayTextHandler}>Disappear</button>
     {persons} 
 </div>
 

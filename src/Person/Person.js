@@ -8,7 +8,7 @@ import React, {Component} from 'react';
     <div>
     <h1 onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2>{this.props.children}</h2> 
-    <input type="text" value={this.props.fname} onChange={this.props.changed}/>   
+    <input  type="text" value={this.props.fname} onChange={this.props.changed}/>   
     {/* tags must be enclosed in other tags */}
     </div>
         );
