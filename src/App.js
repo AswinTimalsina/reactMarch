@@ -2,7 +2,20 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import Person from './Person/Person'
 import './index.css';
+import styled from 'styled-components';
 
+// LOOK AT THIS CONST
+const StyledButton = styled.button`
+      background-color: ${props => props.alt ? 'red' : 'green'};
+      color: white;
+      border: 1px solid blue;
+      padding: 8px;
+      cursor: pointer;
+    
+      &:hover { 
+        background-color: blue;
+      }
+`;
 class App extends Component{
   state = {
     person:[
@@ -63,17 +76,6 @@ class App extends Component{
   }
   
   render(){
-    const style={
-      backgroundColor: 'green',
-      color: 'white',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'blue'
-      }
-    };
-
     let persons = null;
     // handling the components on event
     if(this.state.displayFlag){
@@ -90,17 +92,16 @@ class App extends Component{
               age={per.age}
               key={per.id}
               changed={(event)=>this.switchTextHandler(event, per.id)}
-              style={style}
               />
             })}
             <button onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
         </div> 
       )
-            style.backgroundColor = 'red';
-            style[':hover'] = {
-              backgroundColor: 'yellow',
-              color: 'black'
-            }
+            // style.backgroundColor = 'red';
+            // style[':hover'] = {
+            //   backgroundColor: 'yellow',
+            //   color: 'black'
+            // }
 
 
     }
@@ -116,14 +117,12 @@ class App extends Component{
     }
 
 return(
-
   <div className='center'>
     <h1>Hi, I'm a React App</h1>
     <h1 className={classes.join(' ')}>This is really working</h1>
-    <button style={style} onClick={this.displayTextHandler}>Disappear</button>
+    <StyledButton alt={this.state.displayFlag} onClick={this.displayTextHandler}>Disappear</StyledButton>
     {persons} 
 </div>
-
 )
 
   }
