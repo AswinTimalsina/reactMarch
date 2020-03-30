@@ -97,9 +97,20 @@ class App extends Component{
 
     }
 
+    let classes = [];
+
+    if(this.state.person.length <= 2){
+      classes.push('red');
+    }
+
+    if(this.state.person.length <= 1){
+      classes.push('bold');
+    }
 
 return(
-  <div>
+  <div className='center'>
+    <h1>Hi, I'm a React App</h1>
+    <h1 className={classes.join(' ')}>This is really working</h1>
     <button style={style} onClick={this.displayTextHandler}>Disappear</button>
     {persons} 
 </div>
