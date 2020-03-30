@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import Person from './Person/Person'
 import './index.css';
-import Radium, {StyleRoot} from 'radium';
 
 class App extends Component{
   state = {
@@ -117,17 +116,17 @@ class App extends Component{
     }
 
 return(
-  <StyleRoot>
+
   <div className='center'>
     <h1>Hi, I'm a React App</h1>
     <h1 className={classes.join(' ')}>This is really working</h1>
     <button style={style} onClick={this.displayTextHandler}>Disappear</button>
     {persons} 
 </div>
-</StyleRoot>
+
 )
 
   }
 }
-export default Radium(App);
+export default App;
 
