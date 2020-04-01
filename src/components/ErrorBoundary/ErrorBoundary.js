@@ -17,10 +17,6 @@ componentDidCatch = (error, info) => {
         else{
             return this.props.children;
         }
-
-    
 }
 }
-
-
 export default ErrorBoundary;

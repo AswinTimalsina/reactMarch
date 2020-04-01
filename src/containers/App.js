@@ -1,21 +1,9 @@
 import React, {Component} from 'react';
-import Person from '../components/Persons/Person/Person'
-import '../index.css';
-import styled from 'styled-components';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 
-// LOOK AT THIS CONST
-const StyledButton = styled.button`
-      background-color: ${props => props.alt ? 'red' : 'green'};
-      color: white;
-      border: 1px solid blue;
-      padding: 8px;
-      cursor: pointer;
-    
-      &:hover { 
-        background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-        color: black
-      }
-`;
+
 class App extends Component{
   state = {
     person:[
@@ -80,49 +68,23 @@ class App extends Component{
     // handling the components on event
     if(this.state.displayFlag){
       persons = (
-        
-        <div className="box">
-
-            {this.state.person.map((per, index) => {
-
-              // while executing click={this.deletePersonHandler} I need to know which person I need to delete
-              return <Person 
-              click={() => this.deletePersonHandler(index)} 
-              fname={per.fname} 
-              lname={per.lname} 
-              age={per.age}
-              key={per.id}
-              
-              changed={(event)=>this.switchTextHandler(event, per.id)}
-              />
-            })}
-            <button onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
-        </div> 
+        <ErrorBoundary><Persons 
+        person={this.state.person}
+        deletePersonHandler={this.deletePersonHandler}
+        switchTextHandler = {this.switchTextHandler}
+        // switchNameHandler={this.switchNameHandler}
+        /></ErrorBoundary>
       )
-            // style.backgroundColor = 'red';
-            // style[':hover'] = {
-            //   backgroundColor: 'yellow',
-            //   color: 'black'
-            // }
-
-
     }
 
-    let classes = [];
-
-    if(this.state.person.length <= 2){
-      classes.push('red');
-    }
-
-    if(this.state.person.length <= 1){
-      classes.push('bold');
-    }
-
+    
 return(
   <div className='center'>
-    <h1>Hi, I'm a React App</h1>
-    <h1 className={classes.join(' ')}>This is really working</h1>
-    <StyledButton alt={this.state.displayFlag} onClick={this.displayTextHandler}>Disappear</StyledButton>
+    <Cockpit 
+    person={this.state.person}
+    displayFlag={this.state.displayFlag}
+    displayTextHandler = {this.displayTextHandler}
+    />
     {persons} 
 </div>
 )

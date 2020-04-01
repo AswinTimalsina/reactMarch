@@ -1,0 +1,9 @@
+.box{
+
+    border: 2px solid red;
+    border-radius: 3px;
+    background-color: grey;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
+    color: white;
+  }
+  
