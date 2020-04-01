@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import '../index.css';
+import '../../../index.css';
 import styled from 'styled-components';
-
-
 
 
 const StyledDiv = 
@@ -21,10 +19,10 @@ const StyledDiv =
     }   
     `
 
- class Person extends Component{
+ const Person = (props) =>{
 
   
-    render(){
+   
     //    const style= {'@media (min-width: 500px)': {
     //         width: '450px'
     //     }
@@ -33,13 +31,13 @@ const StyledDiv =
     
     return(
     <StyledDiv>
-    <h1 onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
-    <h2>{this.props.children}</h2> 
-    <input  type="text" value={this.props.fname} onChange={this.props.changed}/>   
+    <h1 onClick={props.click}>This is {props.fname} {props.lname}. I am {props.age} years old.</h1>
+    <h2>{props.children}</h2> 
+    <input  type="text" value={props.fname} onChange={props.changed}/>   
     {/* tags must be enclosed in other tags */}
     </StyledDiv>
         );
-    }
+    
 }
 
 export default Person;
