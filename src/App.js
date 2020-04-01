@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Person from './Person/Person'
 import './index.css';
 import styled from 'styled-components';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 // LOOK AT THIS CONST
 const StyledButton = styled.button`
@@ -13,7 +14,8 @@ const StyledButton = styled.button`
       cursor: pointer;
     
       &:hover { 
-        background-color: blue;
+        background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+        color: black
       }
 `;
 class App extends Component{
@@ -80,19 +82,20 @@ class App extends Component{
     // handling the components on event
     if(this.state.displayFlag){
       persons = (
+        
         <div className="box">
 
             {this.state.person.map((per, index) => {
 
               // while executing click={this.deletePersonHandler} I need to know which person I need to delete
-              return <Person 
+              return <ErrorBoundary key={per.id}> <Person 
               click={() => this.deletePersonHandler(index)} 
               fname={per.fname} 
               lname={per.lname} 
               age={per.age}
-              key={per.id}
+              
               changed={(event)=>this.switchTextHandler(event, per.id)}
-              />
+              /></ErrorBoundary>
             })}
             <button onClick={this.switchNameHandler.bind(this, "Maximillian")}>Click Here</button>
         </div> 
