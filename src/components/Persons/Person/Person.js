@@ -19,8 +19,9 @@ const StyledDiv =
     }   
     `
 
- const Person = (props) =>{
-
+class Person extends Component{
+    render(){
+console.log('[Person.js] rendering...');
   
    
     //    const style= {'@media (min-width: 500px)': {
@@ -31,13 +32,13 @@ const StyledDiv =
     
     return(
     <StyledDiv>
-    <h1 onClick={props.click}>This is {props.fname} {props.lname}. I am {props.age} years old.</h1>
-    <h2>{props.children}</h2> 
-    <input  type="text" value={props.fname} onChange={props.changed}/>   
+    <h1 onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
+    <h2>{this.props.children}</h2> 
+    <input  type="text" value={this.props.fname} onChange={this.props.changed}/>   
     {/* tags must be enclosed in other tags */}
     </StyledDiv>
         );
     
-}
+}}
 
 export default Person;
