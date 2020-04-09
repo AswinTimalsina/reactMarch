@@ -17,7 +17,8 @@ constructor(props){
       {id: "c1", fname: "Arohan", lname: "Timalsina", age: 39}
     ],
     otherName: "Hola",
-    displayFlag: true
+    displayFlag: true,
+    showCockpit: true
   }
 
 
@@ -105,15 +106,15 @@ constructor(props){
         />
       )
     }
-
-    
 return(
   <div className='center'>
-    <Cockpit 
+    <button onClick={() => {this.setState({showCockpit: !this.state.showCockpit})}}>Toggle Cockpit</button>
+    {this.state.showCockpit ? <Cockpit 
     person={this.state.person}
     displayFlag={this.state.displayFlag}
     displayTextHandler = {this.displayTextHandler}
-    />
+    /> : null}
+
     {persons} 
 </div>
 )
