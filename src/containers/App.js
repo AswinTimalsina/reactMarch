@@ -110,11 +110,10 @@ return(
   <div className='center'>
     <button onClick={() => {this.setState({showCockpit: !this.state.showCockpit})}}>Toggle Cockpit</button>
     {this.state.showCockpit ? <Cockpit 
-    person={this.state.person}
+    personLength={this.state.person.length}
     displayFlag={this.state.displayFlag}
     displayTextHandler = {this.displayTextHandler}
     /> : null}
-
     {persons} 
 </div>
 )

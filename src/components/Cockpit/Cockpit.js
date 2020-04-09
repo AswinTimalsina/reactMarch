@@ -39,11 +39,11 @@ useEffect(()=>{
 
     let classes = [];
 
-    if(props.person.length <= 2){
+    if(props.personLength <= 2){
       classes.push('red');
     }
 
-    if(props.person.length <= 1){
+    if(props.personLength <= 1){
       classes.push('bold');
     }
 
@@ -57,4 +57,4 @@ useEffect(()=>{
     )
 }
 
-export default Cockpit;
+export default React.memo(Cockpit);

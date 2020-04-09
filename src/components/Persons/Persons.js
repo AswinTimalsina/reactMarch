@@ -21,8 +21,11 @@ componentWillUnmount(){
 
 
 shouldComponentUpdate(nextProps, nextState){
-  console.log('[Persons.js] shouldComponentUpdate')
-  return true;
+  console.log('[Persons.js] shouldComponentUpdate');
+  if(nextProps.person !== this.props.person){
+    return true;
+  }
+  else return false;
 }
 
 getSnapshotBeforeUpdate(prevProps, prevState){
