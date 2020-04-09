@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Cockpit.css';
 import styled from 'styled-components';
 
@@ -18,6 +18,10 @@ const StyledButton = styled.button`
 
 
 const Cockpit = (props) => {
+useEffect(()=>{
+  console.log('[Cockpit.js useEffect]')
+})
+
     let classes = [];
 
     if(props.person.length <= 2){
