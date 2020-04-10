@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../../../index.css';
 import styled from 'styled-components';
-
+import Auxiliary from '../../hoc/Auxiliary';
 
 const StyledDiv = 
 
@@ -31,13 +31,15 @@ console.log('[Person.js] rendering...');
 
     
     return(
-    <StyledDiv>
-    <h1 onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
-    <h2>{this.props.children}</h2> 
-    <input  type="text" value={this.props.fname} onChange={this.props.changed}/>   
-    {/* tags must be enclosed in other tags */}
-    </StyledDiv>
-        );
+    // <StyledDiv>
+    <Auxiliary>
+    <h1 key='i1' onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
+    <h2 key='i2'>{this.props.children}</h2>
+    <input key='i3' type="text" value={this.props.fname} onChange={this.props.changed}/>   
+    // {/* tags must be enclosed in other tags */}
+    {/* // </StyledDiv> */}
+    </Auxiliary>
+    );
     
 }}
 

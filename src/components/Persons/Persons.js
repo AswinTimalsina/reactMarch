@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './Persons.css';
 import Person from './Person/Person';
 
-class Persons extends Component{
+class Persons extends PureComponent{
 
   // why is it static
 // static getDerivedStateFromProps(props, state){
@@ -20,13 +20,16 @@ componentWillUnmount(){
 }
 
 
-shouldComponentUpdate(nextProps, nextState){
-  console.log('[Persons.js] shouldComponentUpdate');
-  if(nextProps.person !== this.props.person){
-    return true;
-  }
-  else return false;
-}
+// shouldComponentUpdate(nextProps, nextState){
+//   console.log('[Persons.js] shouldComponentUpdate');
+//   if(nextProps.person !== this.props.person ||
+//      nextProps.deletePersonHandler !== this.props.deletePersonHandler ||
+//      nextProps.switchTextHandler !== this.props.switchTextHandler
+//     ){
+//     return true;
+//   }
+//   else return false;
+// }
 
 getSnapshotBeforeUpdate(prevProps, prevState){
 console.log('[Persons.js] getSnapshotBeforeUpdate');
