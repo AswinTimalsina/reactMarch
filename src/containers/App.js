@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import Auxiliary from '../components/hoc/Auxiliary';
+import '../index.css';
 
 
 class App extends Component{
@@ -107,7 +108,8 @@ constructor(props){
       )
     }
 return(
-  <div className='center'>
+  // <div className='center'>
+    <Auxiliary classes='center'>
     <button onClick={() => {this.setState({showCockpit: !this.state.showCockpit})}}>Toggle Cockpit</button>
     {this.state.showCockpit ? <Cockpit 
     personLength={this.state.person.length}
@@ -115,7 +117,8 @@ return(
     displayTextHandler = {this.displayTextHandler}
     /> : null}
     {persons} 
-</div>
+    </Auxiliary>
+// </div>
 )
 
   }
