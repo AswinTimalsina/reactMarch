@@ -3,9 +3,8 @@ import React from 'react';
 const withClass = (Compon, classes) => {
     return props => (
         <div className={classes}>
-            <Compon />
+            <Compon {...props}/>
         </div>
     )
 }
-
 export default withClass;

@@ -20,7 +20,8 @@ constructor(props){
     ],
     otherName: "Hola",
     displayFlag: true,
-    showCockpit: true
+    showCockpit: true,
+    counter:0
   }
 
 
@@ -75,8 +76,12 @@ constructor(props){
     //changing the targeted person in the copied array
     personCopy[personIndex] = personTargetedCopy;
 
-    this.setState({
-        person: personCopy
+    this.setState((prevState, props)=>{
+      return{
+        person: personCopy,
+      counter: prevState.counter +1
+      }
+      
     })
   }
    
