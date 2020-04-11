@@ -61,7 +61,7 @@ componentDidUpdate(prevProps, prevState, snapshot){
               lname={per.lname} 
               age={per.age}
               key={per.id}
-              
+              authen = {this.props.authen}
               changed={(event)=>this.props.switchTextHandler(event, per.id)}
               />
             })}

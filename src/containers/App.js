@@ -21,7 +21,8 @@ constructor(props){
     otherName: "Hola",
     displayFlag: true,
     showCockpit: true,
-    counter:0
+    counter:0,
+    authenticate: false
   }
 
 
@@ -99,6 +100,10 @@ constructor(props){
     this.setState({person : persons});
   }
   
+  authenticateHandler = () => {
+    this.setState({authenticate: !this.state.authenticate})
+  }
+
   render(){
     console.log('[App.js] render');
     let persons = null;
@@ -110,6 +115,7 @@ constructor(props){
         deletePersonHandler={this.deletePersonHandler}
         switchTextHandler = {this.switchTextHandler}
         // switchNameHandler={this.switchNameHandler}
+        authen = {this.state.authenticate}
         />
       )
     }
@@ -121,6 +127,7 @@ return(
     personLength={this.state.person.length}
     displayFlag={this.state.displayFlag}
     displayTextHandler = {this.displayTextHandler}
+    login={this.authenticateHandler}
     /> : null} 
     {persons} 
     </Auxiliary>

@@ -57,6 +57,7 @@ useEffect(()=>{
     alt={props.displayFlag} 
     ref={toggleButtonRef}
     onClick={props.displayTextHandler}>Disappear</StyledButton>
+    <button onClick={props.login}>Login</button>
     </div>
     )
 }

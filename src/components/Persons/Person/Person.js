@@ -48,6 +48,7 @@ console.log('[Person.js] rendering...');
     
     return(
     <Auxiliary>
+        {this.props.authen ? <p>Authenticated</p> : <p>Login</p>}
     <h1 key='i1' onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2 key='i2'>{this.props.children}</h2>
     <input 
