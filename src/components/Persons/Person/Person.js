@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import './Person.css';
 import Auxiliary from '../../hoc/Auxiliary';
 import withClass from '../../hoc/withClass';
+import PropTypes from 'prop-types';
 
 // const StyledDiv = 
 
@@ -42,5 +43,15 @@ console.log('[Person.js] rendering...');
     );
     
 }}
+
+// propTypes need to be with lower case p
+Person.propTypes = {
+    click: PropTypes.func,
+    fname: PropTypes.string,
+    lname: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
+
+}
 
 export default withClass(Person, 'Person');
