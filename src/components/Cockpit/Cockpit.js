@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './Cockpit.css';
 import styled from 'styled-components';
 
@@ -18,15 +18,16 @@ const StyledButton = styled.button`
 
 
 const Cockpit = (props) => {
+const toggleButtonRef = useRef(null);
 useEffect(()=>{
   console.log('[Cockpit.js useEffect]')
-  const timer = setTimeout(()=>{
-    alert('Saved data to cloud');
-  }, 1000);
-
+  // const timer = setTimeout(()=>{
+  toggleButtonRef.current.click();
+  //   alert('Saved data to cloud');
+  // }, 1000);
   // the return code only runs when the component is unmounted or rendered for the first time
   return () => {
-    clearTimeout(timer);
+    // clearTimeout(timer);
     console.log('[Cockpit.js] cleanup work in useEffect')
   }
 }, [])
@@ -52,7 +53,10 @@ useEffect(()=>{
         <div>
         <h1>Hi, I'm a React App</h1>
     <h1 className={classes.join(' ')}>This is really working</h1>
-    <StyledButton alt={props.displayFlag} onClick={props.displayTextHandler}>Disappear</StyledButton>
+    <StyledButton 
+    alt={props.displayFlag} 
+    ref={toggleButtonRef}
+    onClick={props.displayTextHandler}>Disappear</StyledButton>
     </div>
     )
 }

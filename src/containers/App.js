@@ -79,7 +79,7 @@ constructor(props){
     this.setState((prevState, props)=>{
       return{
         person: personCopy,
-      counter: prevState.counter +1
+        counter: prevState.counter +1
       }
       
     })
