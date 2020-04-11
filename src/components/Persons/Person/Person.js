@@ -21,8 +21,21 @@ import PropTypes from 'prop-types';
 //           width: 450px; 
 //     }   
 //     `
-
 class Person extends Component{
+    // componentDidMount executes after render
+
+    constructor(props){
+        super(props)
+        this.inputElement = React.createRef();
+    }
+
+    componentDidMount(){
+        this.inputElement.current.focus();
+    }
+
+
+
+
     render(){
 console.log('[Person.js] rendering...');
   
@@ -37,7 +50,14 @@ console.log('[Person.js] rendering...');
     <Auxiliary>
     <h1 key='i1' onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2 key='i2'>{this.props.children}</h2>
-    <input key='i3' type="text" value={this.props.fname} onChange={this.props.changed}/>   
+    <input 
+    key='i3' 
+    type="text" 
+    value={this.props.fname} 
+    onChange={this.props.changed}
+    // ref={(inputRef)=>{this.inputElement = inputRef}}
+    ref={this.inputElement}
+    />   
      {/* tags must be enclosed in other tags */}
      </Auxiliary>
     );
@@ -51,7 +71,6 @@ Person.propTypes = {
     lname: PropTypes.string,
     age: PropTypes.number,
     changed: PropTypes.func
-
 }
 
 export default withClass(Person, 'Person');
