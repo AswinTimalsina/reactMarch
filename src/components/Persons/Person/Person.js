@@ -34,7 +34,7 @@ class Person extends Component{
         this.inputElement.current.focus();
     }
 
-
+    static contextType = AuthContext;  
 
 
     render(){
@@ -49,9 +49,9 @@ console.log('[Person.js] rendering...');
     
     return(
     <Auxiliary>
-        <AuthContext.Consumer>
-            {(context) => context.authenticate ? <p>Authenticated</p> : <p>Login</p>} 
-        </AuthContext.Consumer>
+        
+            {this.context.authenticate ? <p>Authenticated</p> : <p>Login</p>} 
+       
     <h1 key='i1' onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2 key='i2'>{this.props.children}</h2>
     <input 

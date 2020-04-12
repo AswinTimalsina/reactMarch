@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useContext} from 'react';
 import './Cockpit.css';
 import styled from 'styled-components';
 import AuthContext from '../../context/auth-context';
@@ -20,6 +20,9 @@ const StyledButton = styled.button`
 
 const Cockpit = (props) => {
 const toggleButtonRef = useRef(null);
+
+const authContext = useContext(AuthContext);
+
 useEffect(()=>{
   console.log('[Cockpit.js useEffect]')
   // const timer = setTimeout(()=>{
@@ -59,8 +62,8 @@ useEffect(()=>{
     ref={toggleButtonRef}
     onClick={props.displayTextHandler}>Disappear</StyledButton>
    {/* <AuthContext.Consumer>{context =>  */}
-   <button onClick={props.login}>Login</button>
-   {/* } </AuthContext.Consumer> */}
+   <button onClick={authContext.login}>Login</button>
+     {/* } </AuthContext.Consumer> */}
     </div>
     )
 }

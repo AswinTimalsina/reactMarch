@@ -105,6 +105,7 @@ constructor(props){
     this.setState({authenticate: !this.state.authenticate})
   }
 
+
   render(){
     console.log('[App.js] render');
     let persons = null;
