@@ -4,6 +4,7 @@ import Cockpit from '../components/Cockpit/Cockpit';
 import Auxiliary from '../components/hoc/Auxiliary';
 import classes from '../index.css';
 import withClass from '../components/hoc/withClass';
+import AuthContext from '../context/auth-context';
 
 
 class App extends Component{
@@ -123,13 +124,22 @@ return(
   // <div className='center'>
     <Auxiliary>
     <button onClick={() => {this.setState({showCockpit: !this.state.showCockpit})}}>Toggle Cockpit</button>
-    {this.state.showCockpit ? <Cockpit 
+    <AuthContext.Provider 
+    value = {{
+    authenticate: this.state.authenticate, 
+    login: this.authenticateHandler}}>
+
+    {this.state.showCockpit ? 
+    <Cockpit 
     personLength={this.state.person.length}
     displayFlag={this.state.displayFlag}
     displayTextHandler = {this.displayTextHandler}
-    login={this.authenticateHandler}
-    /> : null} 
+    login= {this.authenticateHandler}
+    /> 
+    : null} 
+
     {persons} 
+    </AuthContext.Provider>  
     </Auxiliary>
 // </div>
 )

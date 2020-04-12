@@ -49,7 +49,9 @@ componentDidUpdate(prevProps, prevState, snapshot){
     console.log('[Persons.js] rendering...');
 
     // couldnot understand return in here
-        return (<div className="box">
+        return (
+        
+        <div className="box">
 
             {this.props.person.map((per, index) => {
                 
@@ -61,12 +63,12 @@ componentDidUpdate(prevProps, prevState, snapshot){
               lname={per.lname} 
               age={per.age}
               key={per.id}
-              authen = {this.props.authen}
               changed={(event)=>this.props.switchTextHandler(event, per.id)}
               />
             })}
             {/* <button onClick={props.switchNameHandler.bind(this, "Maximillian")}>Click Here</button> */}
-        </div> )
+        </div>) 
+       
 
     
 

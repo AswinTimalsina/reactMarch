@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import './Cockpit.css';
 import styled from 'styled-components';
+import AuthContext from '../../context/auth-context';
 
 // LOOK AT THIS CONST
 const StyledButton = styled.button`
@@ -51,13 +52,15 @@ useEffect(()=>{
 
     return(
         <div>
-        <h1>Hi, I'm a React App</h1>
+        <h1>Hi, I'm a Aswin's App</h1>
     <h1 className={classes.join(' ')}>This is really working</h1>
     <StyledButton 
     alt={props.displayFlag} 
     ref={toggleButtonRef}
     onClick={props.displayTextHandler}>Disappear</StyledButton>
-    <button onClick={props.login}>Login</button>
+   {/* <AuthContext.Consumer>{context =>  */}
+   <button onClick={props.login}>Login</button>
+   {/* } </AuthContext.Consumer> */}
     </div>
     )
 }

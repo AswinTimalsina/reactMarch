@@ -5,6 +5,7 @@ import './Person.css';
 import Auxiliary from '../../hoc/Auxiliary';
 import withClass from '../../hoc/withClass';
 import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context';
 
 // const StyledDiv = 
 
@@ -48,7 +49,9 @@ console.log('[Person.js] rendering...');
     
     return(
     <Auxiliary>
-        {this.props.authen ? <p>Authenticated</p> : <p>Login</p>}
+        <AuthContext.Consumer>
+            {(context) => context.authenticate ? <p>Authenticated</p> : <p>Login</p>} 
+        </AuthContext.Consumer>
     <h1 key='i1' onClick={this.props.click}>This is {this.props.fname} {this.props.lname}. I am {this.props.age} years old.</h1>
     <h2 key='i2'>{this.props.children}</h2>
     <input 
